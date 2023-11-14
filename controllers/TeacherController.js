@@ -51,6 +51,51 @@ module.exports = class ProfessorController {
     }
 
 
+    //update teacher
+    static async updateTeacher(req, res) {
+        const id = req.params.id;
+        const { nome, materia, email } = req.body;
+
+        if(!nome) {
+            res.status(422).json({message: "O nome é obrigatório!"});
+            return;
+        }
+
+        if(!materia) {
+            res.status(422).json({message: "A materia é obrigatória"});
+            return;
+        }
+
+        if(!email) {
+            res.status(422).json({message: "O email é obrigatório!"});
+            return;
+        }
+        
+        const updateData = {
+            nome,
+            materia,
+            email
+        }
+
+        try {
+            const updateTeacher = await Teacher.updateProfessorById(id, updateData);
+            console.log(updateTeacher);
+            res.status(200).json({message: "Professor atualizado com sucesso", updateTeacher});
+        } catch (error) {
+            res.status(500).json({message: "Erro ao atualizar o professor"});
+        }
+    }
+
+    static async deleteATeacher(req, res) {
+        const id = req.params.id;
+        try {
+            await Teacher.deleteProfessorById(id);
+            res.status(200).json({message: "Professor deletado com sucesso"});
+        } catch (error) {
+            res.status(500).json({message: "Erro ao deletar o professor"});
+            
+        }
+    }
 
 
    

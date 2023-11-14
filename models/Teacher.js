@@ -8,12 +8,12 @@ class Teacher {
         this.email = email;
     }
 
-    // Obter todos os professores
+    // get all teacher
     static async getAllProfessors() {
         return db.many('SELECT * FROM professores');
     }
 
-    // Criar um novo professor
+    // create new teacher
     static async createTeacher(professorData) {
         return db.none(
             'INSERT INTO professores (nome, materia, email) VALUES ($1, $2, $3)',
@@ -21,12 +21,12 @@ class Teacher {
         );
     }
 
-    // Obter professor por ID
+    //get one teacher
     static async getProfessorById(id) {
         return db.oneOrNone('SELECT * FROM professores WHERE id = $1', id);
     }
 
-    // Atualizar professor por ID
+    // Update with id
     static async updateProfessorById(id, updateProfessorData) {
         return db.none(
             'UPDATE professores SET nome = $1, materia = $2, email = $3 WHERE id = $4',
