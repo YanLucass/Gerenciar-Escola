@@ -31,6 +31,14 @@ const createSchoolTables = `
         departamento VARCHAR(40)
     );
 
+    CREATE TABLE IF NOT EXISTS disciplinas (
+        id SERIAL PRIMARY KEY,
+        nome VARCHAR(50) NOT NULL,
+        carga_horaria INTEGER NOT NULL,
+        sala_aula VARCHAR(50),
+        professor_id INT REFERENCES professores(id)
+    );
+
  
 `;
 

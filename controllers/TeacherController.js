@@ -16,7 +16,7 @@ module.exports = class ProfessorController {
             materia,
             email
         };
-
+         
         try {
             await Teacher.createTeacher(teacherData);
             res.status(201).json({ message: "Professor criado com sucesso!" });
