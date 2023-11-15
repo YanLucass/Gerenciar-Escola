@@ -3,7 +3,7 @@ const Responsible = require('../models/Responsible');
 module.exports = class ResponsibleController {
     
     static async createResponsible(req, res) {
-        const { nome, cpf, telefone, nome_filho } = req.body;
+        const { nome, cpf, telefone} = req.body;
 
         if (!nome) {
             res.status(422).json({ message: "O nome é obrigatório!" });

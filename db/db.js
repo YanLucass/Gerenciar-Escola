@@ -20,6 +20,14 @@ const createSchoolTables = `
         done BOOLEAN NOT NULL
     );
 
+    CREATE TABLE IF NOT EXISTS responsaveis (
+        id SERIAL PRIMARY KEY,
+        nome VARCHAR(50) NOT NULL,
+        cpf VARCHAR(14) NOT NULL UNIQUE,
+        telefone VARCHAR(30) NOT NULL,
+        filho VARCHAR(50) NOT NULL
+    );
+
     CREATE TABLE IF NOT EXISTS students (
         id SERIAL,
         nome VARCHAR(50) NOT NULL,
@@ -27,6 +35,7 @@ const createSchoolTables = `
         telefone VARCHAR(20) NOT NULL,
         curso VARCHAR(50) NOT NULL,
         professor_id INT REFERENCES professores(id),
+        responsavel_id INT REFERENCES responsaveis(id),
         tasks_id INT REFERENCES tasks(id)
     );
 

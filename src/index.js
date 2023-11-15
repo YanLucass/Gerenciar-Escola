@@ -23,7 +23,8 @@ app.use('/task', taskRoutes);
 app.use('/discipline', disciplineRoutes);
 app.use('/director', directorRoutes);
 app.use('/school', schoolRoutes);
-app.use('respon', responsibleRoutes);
+app.use('/respon', responsibleRoutes);
+
 app.get('/', (req, res) => {
     res.redirect('/students/allStudent');
 });
