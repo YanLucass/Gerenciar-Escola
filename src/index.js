@@ -22,7 +22,9 @@ app.use('/task', taskRoutes);
 app.use('/discipline', disciplineRoutes);
 app.use('/director', directorRoutes);
 app.use('/school', schoolRoutes);
-
+app.get('/', (req, res) => {
+    res.redirect('/students/allStudent');
+});
 app.listen(port, () => {
     console.log('Servidor rodando');
 });
