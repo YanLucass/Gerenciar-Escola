@@ -12,14 +12,22 @@ const createSchoolTables = `
         materia VARCHAR(30) NOT NULL,
         email VARCHAR(50) NOT NULL
     );
+    
+    CREATE TABLE IF NOT EXISTS tasks (
+        id SERIAL PRIMARY KEY,
+        titulo VARCHAR(50) NOT NULL,
+        descricao TEXT,
+        done BOOLEAN NOT NULL
+    );
 
     CREATE TABLE IF NOT EXISTS students (
         id SERIAL,
         nome VARCHAR(50) NOT NULL,
-        matricula int PRIMARY KEY NOT NULL,
+        matricula INT PRIMARY KEY NOT NULL,
         telefone VARCHAR(20) NOT NULL,
         curso VARCHAR(50) NOT NULL,
-        professor_id INT REFERENCES professores(id)
+        professor_id INT REFERENCES professores(id),
+        tasks_id INT REFERENCES tasks(id)
     );
 
     CREATE TABLE IF NOT EXISTS funcionarios (
@@ -46,12 +54,7 @@ const createSchoolTables = `
         cpf VARCHAR(14) UNIQUE NOT NULL,
         salario DECIMAL(10, 2) NOT NULL
     );
-    CREATE TABLE IF NOT EXISTS tasks (
-        id SERIAL PRIMARY KEY,
-        titulo VARCHAR(50) NOT NULL,
-        descricao TEXT,
-        done BOOLEAN NOT NULL
-    );
+ 
     CREATE TABLE IF NOT EXISTS escolas (
         id SERIAL PRIMARY KEY,
         nome VARCHAR(50) NOT NULL,

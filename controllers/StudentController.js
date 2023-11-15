@@ -5,7 +5,7 @@ module.exports = class StudentController {
     
     static async createStudent(req, res) {
 
-        const { nome, matricula, telefone, curso, professor_id } = req.body;
+        const { nome, matricula, telefone, curso, professor_id, tarefa_id} = req.body;
 
         if(!nome) {
             res.status(422).json({message: "O nome é obrigatório!"});
@@ -32,12 +32,18 @@ module.exports = class StudentController {
             return;
         }
 
+        if(!tarefa_id) {
+            res.status(422).json({message: "O tf é obrigatório!"});
+            return;
+        }
+
         const studentData = {
             nome,
             matricula,
             telefone,
             curso,
-            professor_id
+            professor_id,
+            tarefa_id
         }
 
         console.log(studentData);

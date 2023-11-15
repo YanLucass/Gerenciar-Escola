@@ -3,13 +3,14 @@ dotenv.config();
 const db = require('../db/db');
 
 class Student {
-    constructor(id, nome, matricula, telefone, curso, professor_id) {
+    constructor(id, nome, matricula, telefone, curso, professor_id, tarefa_id) {
         this.id = id;
         this.nome = nome;
         this.matricula = matricula;
         this.telefone = telefone;
         this.curso = curso;
         this.professor_id = professor_id;
+        this.tarefa_id = tarefa_id;
     }
 
     //get all students
@@ -20,8 +21,8 @@ class Student {
     //create student
     static async createStudent(studentData) {
         return db.none(
-            'INSERT INTO students (nome, matricula, telefone, curso, professor_id) VALUES ($1, $2, $3, $4, $5)',
-            [studentData.nome, studentData.matricula, studentData.telefone, studentData.curso, studentData.professor_id]
+            'INSERT INTO students (nome, matricula, telefone, curso, professor_id, tarefa_id) VALUES ($1, $2, $3, $4, $5, $6)',
+            [studentData.nome, studentData.matricula, studentData.telefone, studentData.curso, studentData.professor_id, studentData.tarefa_id]
         );
     }
 

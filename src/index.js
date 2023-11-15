@@ -11,6 +11,7 @@ const taskRoutes = require('../routes/taskRoutes');
 const disciplineRoutes = require('../routes/disciplineRoutes');
 const directorRoutes = require('../routes/directorRoutes');
 const schoolRoutes = require('../routes/schoolRoutes');
+const responsibleRoutes = require('../routes/responsibleRoutes')
 
 app.use(express.json());
 
@@ -22,6 +23,7 @@ app.use('/task', taskRoutes);
 app.use('/discipline', disciplineRoutes);
 app.use('/director', directorRoutes);
 app.use('/school', schoolRoutes);
+app.use('respon', responsibleRoutes);
 app.get('/', (req, res) => {
     res.redirect('/students/allStudent');
 });
