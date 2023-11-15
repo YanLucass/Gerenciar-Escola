@@ -52,6 +52,14 @@ const createSchoolTables = `
         descricao TEXT,
         done BOOLEAN NOT NULL
     );
+    CREATE TABLE IF NOT EXISTS escolas (
+        id SERIAL PRIMARY KEY,
+        nome VARCHAR(50) NOT NULL,
+        endereco VARCHAR(255) NOT NULL,
+        telefone VARCHAR(20) NOT NULL,
+        cnpj VARCHAR(14) UNIQUE NOT NULL
+    );
+    
 
  
 `;
