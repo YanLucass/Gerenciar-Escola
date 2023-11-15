@@ -38,6 +38,20 @@ const createSchoolTables = `
         sala_aula VARCHAR(50),
         professor_id INT REFERENCES professores(id)
     );
+    CREATE TABLE IF NOT EXISTS diretores (
+        id SERIAL PRIMARY KEY,
+        nome VARCHAR(50) NOT NULL,
+        idade INTEGER NOT NULL,
+        cep VARCHAR(15) NOT NULL,
+        cpf VARCHAR(14) UNIQUE NOT NULL,
+        salario DECIMAL(10, 2) NOT NULL
+    );
+    CREATE TABLE IF NOT EXISTS tasks (
+        id SERIAL PRIMARY KEY,
+        titulo VARCHAR(50) NOT NULL,
+        descricao TEXT,
+        done BOOLEAN NOT NULL
+    );
 
  
 `;
