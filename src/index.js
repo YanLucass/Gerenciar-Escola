@@ -7,7 +7,9 @@ const pgp = require('pg-promise')();
 const studentsRoutes = require('../routes/studentsRoutes');
 const teachersRoutes = require('../routes/teachersRoutes');
 const employeeRoutes = require('../routes/employeeRoutes');
-
+const taskRoutes = require('../routes/taskRoutes');
+const disciplineRoutes = require('../routes/disciplineRoutes');
+const directorRoutes = require('../routes/directorRoutes');
 
 app.use(express.json());
 
@@ -15,6 +17,9 @@ app.use(express.json());
 app.use('/students', studentsRoutes);
 app.use('/teachers', teachersRoutes);
 app.use('/employee', employeeRoutes);
+app.use('/task', taskRoutes);
+app.use('/discipline', disciplineRoutes);
+app.use('/director', directorRoutes);
 
 app.listen(port, () => {
     console.log('Servidor rodando');
