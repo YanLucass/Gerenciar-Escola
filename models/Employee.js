@@ -9,11 +9,11 @@ class Employee {
     this.departamento = departamento;
   }
 
-  static async getAllEmployees() {
+  static async getAllEmployees() { //MÉTODO VOLTADO PARA LISTAR TODOS FUNCIONÁRIOS
     return db.many('SELECT * FROM funcionarios');
   }
 
-  static async createEmployee(employeeData) {
+  static async createEmployee(employeeData) { //MÉTODO VOLTADO PARA CRIAR UM FUNCIONÁRIO
     const { nome, idade, cpf, cargo, departamento } = employeeData;
 
     try {
@@ -24,16 +24,16 @@ class Employee {
     }
   }
 
-  static async getEmployeeByCpf(cpf) {
+  static async getEmployeeByCpf(cpf) { //MÉTODO VOLTADO PARA PEGAR UM FUNCIONÁRIO
     return db.one('SELECT * FROM funcionarios WHERE cpf = $1', cpf);
   }
 
-  static async updateEmployeeByCpf(cpf, updateEmployeeData) {
+  static async updateEmployeeByCpf(cpf, updateEmployeeData) { //MÉTODO VOLTADO PARA ATUALIZAR UM FUNCIONÁRIO
     const { nome, idade, cargo, departamento } = updateEmployeeData;
     return db.one('UPDATE funcionarios SET nome = $1, idade = $2, cargo = $3, departamento = $4 WHERE cpf = $5 RETURNING *', [nome, idade, cargo, departamento, cpf]);
   }
 
-  static async deleteEmployeeByCpf(cpf) {
+  static async deleteEmployeeByCpf(cpf) { //MÉTODO VOLTADO PARA DELETAR UM FUNCIONÁRIO
     return db.none('DELETE FROM funcionarios WHERE cpf = $1', cpf);
   }
 }
