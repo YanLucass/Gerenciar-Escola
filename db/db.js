@@ -1,9 +1,11 @@
 const pgp = require('pg-promise')();
 require('dotenv').config();
 
+
+
 const connectionString = process.env.DATABASE_URL;
 const db = pgp(connectionString);
-
+//criando as tabelas
 const createSchoolTables = `
 
     CREATE TABLE IF NOT EXISTS professores (
