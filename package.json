@@ -8,7 +8,7 @@
     "start": "nodemon src/index.js localhost 3000"
   },
   "keywords": [],
-  "author": "Yan,Eduardo,Diego,Milenia,Iasmin,Iasmim, Rayane.",
+  "author": "Yan,Eduardo,Diego,Milenia,Iasmin,Ismael,Rayane,Esteffane.",
   "license": "ISC",
   "dependencies": {
     "dotenv": "^16.3.1",
