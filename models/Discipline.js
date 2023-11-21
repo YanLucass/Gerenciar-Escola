@@ -16,7 +16,7 @@ class Discipline {
 
   static async createDiscipline(disciplineData) {
     const { nome, descricao, cargaHoraria, professor_id } = disciplineData;
-
+//Inserindo dados na diciplina
     try {
       await db.none('INSERT INTO disciplinas (nome, descricao, cargaHoraria, professor_id) VALUES ($1, $2, $3, $4)', [nome, descricao, cargaHoraria, professor_id]);
       return { nome, descricao, cargaHoraria, professor_id };
