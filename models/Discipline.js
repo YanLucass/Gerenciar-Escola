@@ -1,5 +1,7 @@
 const db = require('../db/db');
 
+//Classse Diciplina 
+
 class Discipline {
   constructor(nome, descricao, cargaHoraria, professor_id) {
     this.nome = nome;
